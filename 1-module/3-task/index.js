@@ -1,9 +1,11 @@
 function ucFirst(str) {
-  if (name === null || name.length <4 ) {
-    return false
-  }else if (name.includes(' ')) { 
-    return false ;    
+  if ( str === "" || str === null ) {
+    str =" " ;
+    return str ;
   } else {
-    return true
-  }
+  let bigFirst = (str[0].toUpperCase()) ;
+  let str1 = bigFirst + str.slice(1)  ;
+  return str1 ;
 }
+}
+
