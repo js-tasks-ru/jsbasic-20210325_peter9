@@ -1,5 +1,5 @@
 function getMinMax(str) {
-	str1 = inputData.split(',') ;
+	str1 = str.split(',') ;
         str2 = str1.join(' ') ;
         str3 = str2.split(' ') ;
 let arrNum = [] ;
