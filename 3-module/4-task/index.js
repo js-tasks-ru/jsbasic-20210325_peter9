@@ -5,7 +5,7 @@ function showSalary(user, age) {
   }) ;
 
   let userNameFiltred = userFilt.map(function(userObj) {
-    return `${userObj['name']} , ${userObj['balance']}`;
+    return `${userObj['name']},${userObj['balance']}`;
    }) ;
 
    let result = userNameFiltred.join('\n') ;
