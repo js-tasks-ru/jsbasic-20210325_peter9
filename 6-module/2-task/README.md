@@ -24,7 +24,7 @@ let productCard = new ProductCard(product);
 <div class="card">
     <div class="card__top">
         <img src="/assets/images/products/...значение product.image..." class="card__image" alt="product">
-        <span class="card__price">€<!--значение product.price--></span>
+        c
     </div>
     <div class="card__body">
         <div class="card__title"><!--значение product.name--></div>

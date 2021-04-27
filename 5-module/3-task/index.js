@@ -1,3 +1,5 @@
+
+
 function initCarousel() {
   const rightButton = document.querySelector('.carousel__arrow_right') ;
   const leftButton = document.querySelector('.carousel__arrow_left') ;
