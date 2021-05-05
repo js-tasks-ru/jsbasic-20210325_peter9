@@ -48,17 +48,18 @@ export default class Carousel {
   
 let step = 0 ;
 
-let productAddEvent = new CustomEvent("product-add", { 
-  detail: this.slides.id , 
-  bubbles: true ,
-}) ;
-  
+
 function carouselBTN (event) {
   const rightButton = document.querySelector('.carousel__arrow_right') ;
   const leftButton = document.querySelector('.carousel__arrow_left') ;
   const picture = document.querySelector('.carousel__inner') ;
   const maxLength = picture.children.length -1 ;
+  const carousel = document.querySelector('.carousel') ;
   
+  // let productAddEvent = new CustomEvent("product-add", { 
+  //   detail: event.target.closest('.carousel__slide').dataset.id , 
+  //   bubbles: true ,
+  // }) ;
     
     if(event.target.closest('.carousel__arrow_right')){
         step++ ;
@@ -75,20 +76,25 @@ function carouselBTN (event) {
           leftButton.style.display = 'none' ;
         }
       } else if (event.target.closest('.carousel__button')) {
-        document.querySelector('.carousel').dispatchEvent("productAddEvent") ;    
+        carousel.dispatchEvent( new CustomEvent("product-add" ,{ 
+            detail: event.target.closest('.carousel__slide').dataset.id , 
+            bubbles: true ,
+          })) ;
     }else {
       return ;
     }
   }
       
-  this.elem.addEventListener('click' , carouselBTN);
-
+  this.elem.addEventListener('click' , carouselBTN );
+  // this.elem.addEventListener('product-add' , ev =>{
+  //   console.log(ev.detail) ;
+  // } )
 
   return this.elem ;
     
 
   
-  }
+  }//render
 } 
   
 

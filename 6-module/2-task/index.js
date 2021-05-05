@@ -39,7 +39,7 @@ export default class ProductCard {
     
      function btnClick(event) {
       if (event.target.closest('.card__button')) {
-          document.querySelector('.card').dispatchEvent("productAddEvent") ;    
+          document.querySelector('.card').dispatchEvent(productAddEvent) ;    
       }else {
         return ;
       }

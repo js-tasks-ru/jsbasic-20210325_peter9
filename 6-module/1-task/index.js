@@ -12,10 +12,11 @@
  *      }
  *
  */
-export default class UserTable {
+ export default class UserTable {
   constructor(rows) {
     this.data = rows ;
-    this.newRow = '' ;
+    this.tbody = '' ;
+    this.render() ;
   }
 
 
@@ -25,27 +26,32 @@ export default class UserTable {
   }
 
 
-   get elem () {
-    if (!this.element) {
-        this.element = document.createElement('table');
-        this.element.tHead = document.createElement('thead');
-        this.element.tBody = document.createElement('tbody') ;
-        this.element.addEventListener('click', event => {
+   render () {
+    //  const tHead = document.createElement('thead') ;
+
+    if (!this.elem) {
+        this.elem = document.createElement('table');
+        // this.elem.tHead = document.createElement('thead');
+        // this.elem.tBody = document.createElement('tbody') ;
+        this.elem.addEventListener('click', event => {
 					this.clickBtn(event);
 				});
     }
 
-    let tHead = `<tr>
+    let thead = `<thead><tr>
     <th>Имя</th>
     <th>Возраст</th>
     <th>Зарплата</th>
     <th>Город</th>
     <th></th>
     </tr>
+    </thead>
   `
-    
-     for ( const prop of this.data) {
-    this.newRow += `
+  this.elem.insertAdjacentHTML( `beforeEnd` , thead) ;
+     
+  
+  for ( const prop of this.data) {
+      this.tbody += `
        <tr>
          <td>${prop.name}</td>
          <td>${prop.age}</td>
@@ -55,9 +61,11 @@ export default class UserTable {
        </tr>
       `
   }
+
+  this.tbody =`<tbody> ${this.tbody} </tbody>` 
   
-  this.element.tHead.insertAdjacentHTML( `beforeEnd` , tHead) ;
-  this.element.insertAdjacentHTML( `beforeEnd` , this.newRow) ;
-  return this.element;
+  // this.elem.tHead.insertAdjacentHTML( `beforeEnd` , thead) ;
+  this.elem.insertAdjacentHTML('beforeEnd' , this.tbody) ;
+  return this.elem;
 }
 }
