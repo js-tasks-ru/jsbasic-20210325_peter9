@@ -1,5 +1,5 @@
 export default class StepSlider {
-  constructor({ steps, value = 0 }) {
+  constructor({ steps, value = 4 }) {
     this.steps = steps ;
     this.value = value ;
     this.render() ;
@@ -9,16 +9,19 @@ export default class StepSlider {
     this.elem = document.createElement('div') ;
     this.elem.classList.add('slider') ;
 
+    const startPosition = this.value*(100/(this.steps-1)) ;
+
     const sliderThumb = document.createElement('div') ;
     sliderThumb.classList.add('slider__thumb') ;
-      
+    sliderThumb.style.left = `${startPosition}%` ;
+    
     const sliderValue = document.createElement('span') ;
     sliderValue.classList.add('slider__value') ;
     sliderValue.innerText = this.value ;
        
     const sliderProgress = document.createElement('div') ;
     sliderProgress.classList.add('slider__progress') ;
-    
+    sliderProgress.style.width = `${startPosition}%` ;
 
 
     const sliderSteps = document.createElement('div') ;
@@ -31,6 +34,7 @@ export default class StepSlider {
     }
 
     sliderSteps.children[this.value].classList.add('slider__step-active') ;
+
 
   sliderThumb.append(sliderValue)
   this.elem.append(sliderThumb ,sliderProgress ,sliderSteps )
