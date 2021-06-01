@@ -95,8 +95,8 @@ export default class RibbonMenu {
               for (const i of ribbonItems ) {
                 i.classList.remove('ribbon__item_active')  ;
               }
-              console.log(ev.target) ;
-              console.log(ev.target.dataset.id) ;
+              // console.log(ev.target) ;
+              // console.log(ev.target.dataset.id) ;
               ev.target.classList.toggle('ribbon__item_active') ;
               
               const ribbonSelect = new CustomEvent('ribbon-select', { 

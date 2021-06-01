@@ -36,7 +36,7 @@ export default class Modal {
     
 
     closeEvent(event) {
-      const modal = document.querySelector('.modal') ;
+      // const modal = document.querySelector('.modal') ;
       if (event.target.closest('.modal__close')) {
         this.close() ;
         // document.body.classList.remove ('is-modal-open') ;
@@ -58,15 +58,16 @@ export default class Modal {
 
     setBody(html) {
       const body = this.elem.querySelector('.modal__body') ;
-      body.innerHTML = html.innerHTML ;
+      body.innerHTML = '' ;
+      body.append(html) ;
 } ;
 
 
 
     close () {
-      const modal = document.querySelector('.modal') ;
+      //const modal = this.elem ;
       document.body.classList.remove ('is-modal-open') ;
-      modal.remove() ;
+      this.elem.remove() ;
     }
 
     open () {

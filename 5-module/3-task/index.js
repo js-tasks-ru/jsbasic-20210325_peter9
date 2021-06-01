@@ -1,5 +1,3 @@
-
-
 function initCarousel() {
   const rightButton = document.querySelector('.carousel__arrow_right') ;
   const leftButton = document.querySelector('.carousel__arrow_left') ;
@@ -9,8 +7,8 @@ function initCarousel() {
   leftButton.style.display = 'none' ;
 
   function nextBtn() {
-    picture.style.transform += `translateX(-${picture.offsetWidth}px)`;
     step++ ;
+    picture.style.transform = `translateX(-${picture.offsetWidth * step}px)`;
     leftButton.style.display = ''
     if (step === maxLength ) {
       rightButton.style.display = 'none'
@@ -18,8 +16,8 @@ function initCarousel() {
 	} 
 
   function prevBtn() {
-    picture.style.transform += `translateX(${picture.offsetWidth}px)`;
     step-- ;
+    picture.style.transform = `translateX(-${picture.offsetWidth * step}px)`;
     rightButton.style.display = ''
     if (step === 0 ) {
       leftButton.style.display = 'none'
