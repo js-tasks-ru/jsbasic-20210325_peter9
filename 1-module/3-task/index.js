@@ -1,6 +1,6 @@
 function ucFirst(str) {
   if ( str === "" || str === null ) {
-    str =" " ;
+    str ="" ;
     return str ;
   } else {
   let bigFirst = (str[0].toUpperCase()) ;
